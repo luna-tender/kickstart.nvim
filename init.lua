@@ -207,21 +207,14 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
-local mygroup = vim.api.nvim_create_augroup('vimrc', { clear = true })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '*.html *.rpy',
-  group = mygroup,
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
   command = 'set shiftwidth=4',
 })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '*.html *.rpy',
-  group = 'vimrc', -- equivalent to group=mygroup
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
   command = 'set expandtab',
 })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '*',
-  group = 'vimrc', -- equivalent to group=mygroup
-  command = 'map <leader>d "_d',
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+  command = 'nnoremap  d "_d',
 })
 
 -- Highlight when yanking (copying) text
